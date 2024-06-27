@@ -7,8 +7,8 @@
 # gdp_level_2 <-as.data.frame( read.csv("data/na-nov2019-gdp-breakdown-csv.csv", stringsAsFactors = F))
 
 ##2020 data
-gdp_level_3 <-as.data.frame( readRDS("data/GDP_level_2.rds"))
-gdp_level_2 <-as.data.frame( readRDS("data/GDP_level_3.rds"))
+gdp_level_2 <-as.data.frame( readRDS("data/GDP_level_2.rds"))
+gdp_level_3 <-as.data.frame( readRDS("data/GDP_level_3.rds"))
 
 # gdp_level_3 <- as.data.frame(read_excel("data/2020level3.xlsx"))
 # gdp_level_2 <- as.data.frame(read.csv("data/na-nov2021-gdp-breakdown-csv.csv", stringsAsFactors = F))
@@ -28,6 +28,7 @@ level_2 <-gdp_level_2 %>%
 ###GDP data level 3 industry 
 level_3 <-gdp_level_3 %>%
   select(everything())%>%
+  filter(Series_title_1=="Gross Domestic Product - production measure")%>%
   mutate(Period=as.character(round(Period),0))%>%
   mutate(Data_value=as.numeric(round(Data_value),0))%>%
   select(Period, GDP=Data_value, Industry=Series_title_2)%>%

@@ -115,10 +115,10 @@ ui <- fluidPage(
   
   # fluidRow(
   column(12, style = list("padding-bottom:0px; padding-top:0px;"), 
-         chooseSliderSkin("HTML5", color = '#272726'),
+         #chooseSliderSkin("HTML5", color = '#272726'),
          
          conditionalPanel(condition = "input.Modeview1 == 'top10ind'", 
-                          sidebarPanel(id="sidebar", width=12, chooseSliderSkin("HTML5", color = '#272726'),
+                          sidebarPanel(id="sidebar", width=12, #chooseSliderSkin("HTML5", color = '#272726'),
                                        sliderInput("yr",strong("1972–2019"), min = 1972, max = 2019, value = 2019, sep = "", width= '2000px')),
                           
                           column(7, plotlyOutput(outputId = "barplot_top10",height = "500px")), 
@@ -129,7 +129,7 @@ ui <- fluidPage(
          
          
          conditionalPanel(condition = "input.Modeview1 == 'BroadInd'", 
-                          sidebarPanel(id="sidebar", width=12, chooseSliderSkin("HTML5", color = '#272726'),
+                          sidebarPanel(id="sidebar", width=12, #chooseSliderSkin("HTML5", color = '#272726'),
                                        sliderInput("yr_2",strong("1972–2019"), min = 1972, max = 2019, value = 2019, sep = "", width= '2000px')),
                           
                           column(12, plotlyOutput(outputId = "broad_industry_group",height = "500px"))
